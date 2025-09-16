@@ -11,7 +11,7 @@ version = "0.2"
 description = "Lie Groups for PyTorch"
 license = { text = "BSD-3-Clause" }
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
     "torch>=2.6.0",
     "numpy<2",
