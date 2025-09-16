@@ -13,16 +13,16 @@ setup(
     author='teedrz',
     packages=['lietorch'],
     ext_modules=[
-        CUDAExtension('lietorch_backends', 
+        CUDAExtension('lietorch_backends',
             include_dirs=[
-                osp.join(ROOT, 'lietorch/include'), 
+                osp.join(ROOT, 'lietorch/include'),
                 osp.join(ROOT, 'eigen')],
             sources=[
-                'lietorch/src/lietorch.cpp', 
+                'lietorch/src/lietorch.cpp',
                 'lietorch/src/lietorch_gpu.cu',
                 'lietorch/src/lietorch_cpu.cpp'],
             extra_compile_args={
-                'cxx': ['-O2'], 
+                'cxx': ['-O2', '-D_GLIBCXX_USE_CXX11_ABI=0'],
                 'nvcc': ['-O2',
                     '-gencode=arch=compute_60,code=sm_60', 
                     '-gencode=arch=compute_61,code=sm_61', 
@@ -33,7 +33,7 @@ setup(
                 ]
             }),
 
-        CUDAExtension('lietorch_extras', 
+        CUDAExtension('lietorch_extras',
             sources=[
                 'lietorch/extras/altcorr_kernel.cu',
                 'lietorch/extras/corr_index_kernel.cu',
@@ -43,7 +43,7 @@ setup(
                 'lietorch/extras/extras.cpp',
             ],
             extra_compile_args={
-                'cxx': ['-O2'], 
+                'cxx': ['-O2', '-D_GLIBCXX_USE_CXX11_ABI=0'],
                 'nvcc': ['-O2',
                     '-gencode=arch=compute_60,code=sm_60', 
                     '-gencode=arch=compute_61,code=sm_61', 
