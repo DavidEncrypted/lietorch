@@ -52,3 +52,4 @@ setup(
             extra_link_args=['-D_GLIBCXX_USE_CXX11_ABI=0']),  # Add to linker too
     ],
     cmdclass={ 'build_ext': BuildExtension }
+)
